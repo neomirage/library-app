@@ -21,7 +21,7 @@ import java.lang.IllegalArgumentException
 
     fun divide(operand: Int) {
         if (operand == 0) {
-            throw IllegalArgumentException("00으로 나눌 수 없습니다.")
+            throw IllegalArgumentException("0으로 나눌 수 없습니다.")
         }
         this._number /= operand
     }

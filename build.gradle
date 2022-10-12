@@ -27,12 +27,12 @@ tasks.named('test') {
 
 compileKotlin {
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = "11"
     }
 }
 
 compileTestKotlin {
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = "11"
     }
 }
