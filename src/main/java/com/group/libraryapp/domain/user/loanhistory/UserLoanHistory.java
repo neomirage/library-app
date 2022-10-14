@@ -1,6 +1,7 @@
 package com.group.libraryapp.domain.user.loanhistory;
 
 import com.group.libraryapp.domain.user.User;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,6 +34,15 @@ public class UserLoanHistory {
     this.isReturn = isReturn;
   }
 
+  @NotNull
+  public User getUser() {
+    return user;
+  }
+
+  public boolean isReturn() {
+    return isReturn;
+  }
+  @NotNull
   public String getBookName() {
     return this.bookName;
   }

@@ -8,6 +8,7 @@ import org.assertj.core.api.AssertionsForInterfaceTypes.assertThat
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertAll
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import javax.print.attribute.standard.PrinterURI
@@ -51,9 +52,11 @@ class UserServiceTest @Autowired constructor(
         val results = userService.getUsers()
 
         // then
-        assertThat(results).hasSize(2) // [UserResponse(), UserResponse()]
-        assertThat(results).extracting("name").containsExactlyInAnyOrder("A", "B") //["A", "B"]
-        assertThat(results).extracting("age").containsExactlyInAnyOrder(20, null)
+        assertAll(
+            { assertThat(results).hasSize(2) }, // [UserResponse(), UserResponse()]
+            { assertThat(results).extracting("name").containsExactlyInAnyOrder("A", "B") }, //["A", "B"]
+            { assertThat(results).extracting("age").containsExactlyInAnyOrder(20, null) }
+        )
     }
 
     @Test
