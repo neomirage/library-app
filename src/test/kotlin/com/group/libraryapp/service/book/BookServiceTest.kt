@@ -16,7 +16,6 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import java.lang.IllegalArgumentException
 
 @SpringBootTest
 class BookServiceTest @Autowired constructor(
@@ -52,7 +51,8 @@ class BookServiceTest @Autowired constructor(
     fun loanBookTest() {
         // given
         bookRepository.saveAll(listOf(
-            Book("kotlin"), Book("Java")
+            Book("kotlin"),
+            Book("Java")
         ))
 
         val savedUser = userRepository.save(User("A", 20))
@@ -76,7 +76,8 @@ class BookServiceTest @Autowired constructor(
     fun loanBookFailTest() {
         // given
         bookRepository.saveAll(listOf(
-            Book("kotlin"), Book("Java")
+            Book("kotlin"),
+            Book("Java")
         ))
         val savedUser = userRepository.save(User("A", 20))
         userLoanHistoryRepository.save(UserLoanHistory(savedUser, "kotlin", false))
