@@ -80,7 +80,13 @@ class BookServiceTest @Autowired constructor(
             Book("Java")
         ))
         val savedUser = userRepository.save(User("A", 20))
-        userLoanHistoryRepository.save(UserLoanHistory(savedUser, "kotlin", false))
+        userLoanHistoryRepository.save(
+            UserLoanHistory(
+                savedUser,
+                "kotlin",
+                false
+            )
+        )
         val bookLoanRequest = BookLoanRequest("A", "kotlin")
 
         // when  & then
@@ -98,7 +104,13 @@ class BookServiceTest @Autowired constructor(
         // given
         bookRepository.save(Book("kotlin"))
         val savedUser = userRepository.save(User("A", 20))
-        userLoanHistoryRepository.save(UserLoanHistory(savedUser, "kotlin", false))
+        userLoanHistoryRepository.save(
+            UserLoanHistory(
+                savedUser,
+                "kotlin",
+                false
+            )
+        )
 
         val bookReturnRequest = BookReturnRequest("A", "kotlin")
 
