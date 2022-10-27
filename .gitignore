@@ -31,3 +31,4 @@ out/
 ### LSP ###
 .DS_store
 application-datasource-custom.yml
+/bin/
